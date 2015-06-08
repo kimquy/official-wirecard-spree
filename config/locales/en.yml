@@ -1,0 +1,40 @@
+
+en:
+
+  spree:
+    customer_id: "Customer Id"
+    shop_id: "Shop Id"
+    secret: "Secret"
+    service_url: "Service url"
+    image_url: "Image url"
+    max_retries: "Max. retries"
+    auto_deposit: "Autom. deposit"
+    send_additional_data: "Send additional data"
+    use_iframe: "Use IFrame"
+    display_text: "Display text"
+    min_amount: "Minimum amount"
+    max_amount: "Maximim amount"
+
+  wirecard_checkout_page:
+    payment_type: "Payment type"
+    gateway_reference_number: "Gateway reference number"
+    order_number: "Order number"
+    payment_state: "Payment state"
+
+    order_processed_successfully: "Your order has been completed, and will be shipped soon"
+    order_processed_successfully_payment_pending: "Your order will be shipped, as soon as we get the payment notification from your bank"
+    payment_has_cancelled: "The payment has been canceled"
+
+    birthday_required: "Birthday is missing"
+    invoice_min_age: "You must be older than 18 to be allowed to pay with Invoice"
+    invoice_notallowed: "Invoice is not allowed"
+    installment_min_age: "You must be older than 18 to be allowed to pay with Installment"
+    installment_notallowed: "Installment is not allowed"
+    init_failed: "Payment initiation failed"
+
+    iframebreakout_redirect: "You will be redirected shortly"
+    iframebreakout_redirect_click: 'If not, please click <a href="#" onclick="iframeBreakout()">here</a>'
+
+
+
+

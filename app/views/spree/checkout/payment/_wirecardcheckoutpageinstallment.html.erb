@@ -1,0 +1,7 @@
+<p class="field" data-hook="wirecard_checkout_page_birthday">
+  <%= label_tag nil, t(:birthday) %><br />
+  <%= select_day(Date.today, :prefix => 'wirecard_checkout_page', :field_name => 'birthday_day_installment', :class => 'required') %>
+  <%= select_month(Date.today, :prefix => 'wirecard_checkout_page', :field_name => 'birthday_month_installment', :use_month_numbers => true, :class => 'required') %>
+  <%= select_year(Date.today, :prefix => 'wirecard_checkout_page', :field_name => 'birthday_year_installment', :start_year => 1900, :use_month_numbers => true, :class => 'required') %>
+  <span class="req">*</span>
+</p>

@@ -1,0 +1,35 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
+  <head data-hook="inside_head">
+    <%= render :partial => 'spree/shared/head' %>
+  </head>
+  <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
+
+    <div class="container">
+        <div id="content" class="columns sixteen" data-hook>
+            <h3><%= t('wirecard_checkout_page.iframebreakout_redirect') %></h3>
+            <p><%=raw t('wirecard_checkout_page.iframebreakout_redirect_click') %></p>
+            <form method="POST" name="redirectForm" action="<%= request.original_url %>" target="_parent">
+            <% params.each do |k, v| %>
+                <% if k != 'xIframeUsed' %>
+                    <input type="hidden" name="<%= k %>" value="<%= v %>"/>
+                <% end %>
+            <% end %>
+            </form>
+            <script type="text/javascript">
+               // <![CDATA[
+               function iframeBreakout() {
+                   document.redirectForm.submit();
+               }
+
+               iframeBreakout();
+               //]]>
+            </script>
+        </div>
+    </div>
+  </body>
+</html>

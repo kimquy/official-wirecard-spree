@@ -1,0 +1,41 @@
+
+de:
+
+  spree:
+    customer_id: "Customer Id"
+    shop_id: "Shop Id"
+    secret: "Secret"
+    service_url: "Service url"
+    image_url: "Bild url"
+    max_retries: "Max. Versuche"
+    auto_deposit: "Autom. abbuchen"
+    send_additional_data: "Detaillierte Kundendaten senden"
+    use_iframe: "IFrame verwenden"
+    display_text: "Text auf der Bezahlseite"
+    min_amount: "Min. Bestellsumme"
+    max_amount: "Max. Bestellsumme"
+
+  wirecard_checkout_page:
+    payment_type: "Zahlungsart"
+    gateway_reference_number: "Referenznummer des Prozessors/Acquirers"
+    order_number: "Auftragsnummer"
+    payment_state: "Status"
+
+    order_processed_successfully: "Ihre Bestellung ist vollständig und wird so schnell wie möglich versendet"
+    order_processed_successfully_payment_pending: "Ihre Bestellung wird versendet, sobald wir den erfolgreichen Zahlungseingang Ihrer Bank erhalten"
+    payment_has_cancelled: "Der Bezahlvorgang für die Bestellung wurde abgebrochen"
+
+    birthday_required: "Der Geburtstag fehlt"
+    invoice_min_age: "Sie müssen älter als 18 sein, um per Rechnung bezahlen zu dürfen"
+    invoice_notallowed: "Bezahlung auf Rechnung ist nicht erlaubt"
+    installment_min_age: "Sie müssen älter als 18 sein, um in Raten bezahlen zu dürfen"
+    installment_notallowed: "Ratenzahlung ist nicht erlaubt"
+    init_failed: "Die Verbindung zum Zahlungsanbieter konnte nicht hergestellt werden"
+
+    iframebreakout_redirect: "Sie werden in Kürze weitergeleitet"
+    iframebreakout_redirect_click: 'falls nicht, klicken Sie bitte <a href="#" onclick="iframeBreakout()">hier</a>'
+
+
+
+
+
