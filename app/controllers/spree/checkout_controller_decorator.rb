@@ -51,7 +51,7 @@ module Spree
         end
       end
 
-      load_order
+      load_order_with_lock
 
       Wirecard::Logger.debug @order.to_yaml
       Wirecard::Logger.debug @order.user.to_yaml
