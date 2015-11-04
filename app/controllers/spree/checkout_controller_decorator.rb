@@ -51,7 +51,7 @@ module Spree
         end
       end
 
-      load_order
+      load_order_with_lock
 
       Wirecard::Logger.debug @order.to_yaml
       Wirecard::Logger.debug @order.user.to_yaml
@@ -103,6 +103,44 @@ module Spree
 
       return
     end
+
+    # Methods not supported on spree 3.0
+    private
+    def object_params
+      # has_checkout_step? check is necessary due to issue described in #2910
+      if @order.has_checkout_step?("payment") && @order.payment?
+        if params[:payment_source].present?
+          source_params = params.delete(:payment_source)[params[:order][:payments_attributes].first[:payment_method_id].underscore]
+
+          if source_params
+            params[:order][:payments_attributes].first[:source_attributes] = source_params
+          end
+        end
+
+        if (params[:order][:payments_attributes])
+          params[:order][:payments_attributes].first[:amount] = @order.total
+        end
+      end
+
+      if params[:order]
+        params[:order].permit(permitted_checkout_attributes)
+      else
+        {}
+      end
+    end
+
+    # Convenience method for firing instrumentation events with the default payload hash
+    def fire_event(name, extra_payload = {})
+      ActiveSupport::Notifications.instrument(name, default_notification_payload.merge(extra_payload))
+    end
+
+    # Creates the hash that is sent as the payload for all notifications. Specific notifications will
+    # add additional keys as appropriate. Override this method if you need additional data when
+    # responding to a notification
+    def default_notification_payload
+      {:user => try_spree_current_user, :order => current_order}
+    end
+
 
   end
 end
