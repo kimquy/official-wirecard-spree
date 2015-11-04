@@ -28,7 +28,7 @@ module Spree
       rescue Exception => e
         payment.failure!
         @order.update
-        render :text => '<QPAY-CONFIRMATION-RESPONSE result="' + CGI.escapeHTML(e.message) + '"/>'
+        #render :text => '<QPAY-CONFIRMATION-RESPONSE result="' + CGI.escapeHTML(e.message) + '"/>'
         return
       end
 
@@ -47,11 +47,12 @@ module Spree
 
       @order.update!
 
-      render :text => '<QPAY-CONFIRMATION-RESPONSE result="OK"/>'
+      #render :text => '<QPAY-CONFIRMATION-RESPONSE result="OK"/>'
     end
 
 
     def return
+      confirm
 
       if params[:xIframeUsed]
         render :layout => false, :file => 'spree/checkout/wirecardcheckoutpageiframebreakout'
@@ -91,7 +92,6 @@ module Spree
       end
 
     end
-
 
     def payment_method
       Spree::PaymentMethod.find(params[:spree_payment_method_id])
