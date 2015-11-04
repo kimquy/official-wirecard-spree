@@ -106,7 +106,7 @@ class Spree::PaymentMethod::WirecardCheckoutPage < Spree::PaymentMethod
       params[:consumerBirthdate] = extra_params[:birthday].to_s
     end
 
-    params[:pluginVersion] = Base64.encode64(Spree::Config[:site_name] + ';' + Spree::version + ';;' + self::plugin_name + ';' + self::plugin_version)
+    params[:pluginVersion] = Base64.encode64(Spree::Store.current.name.to_s + ';' + Spree::version + ';;' + self::plugin_name + ';' + self::plugin_version)
 
     params[:spree_payment_method_id] = self.id
     params[:spree_order_id] = order.id
